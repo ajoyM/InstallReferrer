@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.google.com' }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+    }
+}
+
+repositories {
+    maven {
+        url 'https://maven.google.com/'
+    }
+}
+
+
+allprojects {
+    repositories {
+        maven {
+            url "https://maven.google.com"
+        }
+        jcenter()
+
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+ext {
+   
+    cdvVersionCode = 6
+}
+
+android {
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+    }
+
+    defaultConfig {
+        minSdkVersion 19
+        versionName "1.0.0"
+        multiDexEnabled true
+
+    }
+
+    signingConfigs {
+        release {
+
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:support-v4:+'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.installreferrer:installreferrer:1.1'
+}

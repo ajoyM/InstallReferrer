@@ -1,0 +1,7 @@
+{
+  "name": "testPlayStore",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,33 @@
+
+
+buildscript {
+    repositories {
+        maven {
+            url "https://maven.google.com"
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url "https://maven.google.com"
+        }
+        jcenter()
+    }
+    //This replaces project.properties w.r.t. build settings
+    project.ext {
+      defaultBuildToolsVersion="28.0.3" //String
+      defaultMinSdkVersion=19 //Integer - Minimum requirement is Android 4.4
+      defaultTargetSdkVersion=28 //Integer - We ALWAYS target the latest by default
+      defaultCompileSdkVersion=28 //Integer - We ALWAYS compile with the latest by default
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
